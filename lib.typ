@@ -118,7 +118,7 @@
   pagebreak()
 
   abbr.list()
-  abbr.make(abbreviations)
+  abbr.make(..abbreviations)
 
   pagebreak()
 }
