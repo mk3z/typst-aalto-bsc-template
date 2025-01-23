@@ -27,17 +27,17 @@
 }
 
 #let intro(
-  title,
-  author,
-  major,
-  code,
-  teacher,
-  supervisor,
-  summary,
-  keywords,
-  language,
-  abbreviations,
-  date,
+  title: "Title",
+  author: "Jaakko Turpela",
+  major: "Major",
+  code: "SCI1234",
+  teacher: "Teacher",
+  supervisor: "Supervisor",
+  summary: lorem(100),
+  keywords: (),
+  language: "English",
+  abbreviations: (),
+  date: datetime.today(),
 ) = {
   let date = date.display("[day]. [month repr:long] [year]")
 

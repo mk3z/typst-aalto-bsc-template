@@ -8,16 +8,16 @@ Clone repo into your thesis directory.
 #show: styling
 
 #intro(
-  "Aalto bachelor's thesis template for Typst",
-  "Teemu Teekkari",
-  "Textile engineering",
-  "SCI1234",
-  "Leslie Lamport",
-  "Jaakko Turpela",
-  lorem(100),
-  ("Typst", "typesetting"),
-  "English",
-  (("NTSC", "Never The Same Color"), ("PAL", "Perfect At Last")),
-  datetime.today(),
+  title: "Aalto bachelor's thesis template for Typst",
+  author: "Teemu Teekkari",
+  major: "Textile engineering",
+  code: "SCI1234",
+  teacher: "Leslie Lamport",
+  supervisor: "Jaakko Turpela",
+  summary: lorem(100),
+  keywords: ("Typst", "typesetting"),
+  language: "English",
+  abbreviations: (("NTSC", "Never The Same Color"), ("PAL", "Perfect At Last")),
+  date: datetime.today(),
 )
 ```
