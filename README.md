@@ -31,7 +31,10 @@ Clone repo into your thesis directory.
 
 = Conclusion
 
-#show: appendix
-
-= Appendix
+#end(
+  "../bibliography.bib",
+  [
+    #lorem(100)
+  ],
+)
 ```

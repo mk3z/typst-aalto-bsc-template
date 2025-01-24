@@ -122,8 +122,16 @@
   pagebreak()
 }
 
-#let appendix(body) = {
-  set heading(numbering: "A", supplement: [Appendix])
+#let end(bibfile, appendix) = {
+  pagebreak()
+
+  bibliography(bibfile)
+
+  pagebreak()
+
   counter(heading).update(0)
-  body
+  set heading(numbering: "A", supplement: [Appendix])
+
+  [= Appendix]
+  appendix
 }
