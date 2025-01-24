@@ -20,4 +20,18 @@ Clone repo into your thesis directory.
   abbreviations: (("NTSC", "Never The Same Color"), ("PAL", "Perfect At Last")),
   date: datetime.today(),
 )
+
+= Introduction
+
+= Foo
+
+= Bar
+
+== Baz
+
+= Conclusion
+
+#show: appendix
+
+= Appendix
 ```
