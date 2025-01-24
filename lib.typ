@@ -107,7 +107,8 @@
 
   show outline.entry: it => {
     if it.level == 1 {
-      strong(it.body)
+      v(22pt, weak: true)
+      [#strong(it.body) #box(width: 1fr) #strong(it.page)]
     } else {
       [#it.body #box(width: 1fr, it.fill) #it.page]
     }
