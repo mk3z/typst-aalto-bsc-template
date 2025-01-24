@@ -114,10 +114,7 @@
     }
   }
 
-
   outline(indent: auto, fill: repeat(". "))
-
-  pagebreak()
 
   abbr.list()
   abbr.make(..abbreviations)
