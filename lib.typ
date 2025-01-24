@@ -11,7 +11,7 @@
     }
   })
 
-  set par(leading: 0.8em)
+  set par(leading: 0.8em, justify: true)
 
   set heading(numbering: "1.")
 
