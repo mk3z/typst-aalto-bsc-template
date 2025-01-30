@@ -1,4 +1,9 @@
 #import "@preview/abbr:0.1.1"
+#import "@preview/linguify:0.4.1": *
+
+#let lang-data = toml("lang.toml")
+
+#let l(key) = linguify(key, from: lang-data)
 
 #let styling(it) = {
   import "@preview/abbr:0.1.1"
@@ -21,9 +26,9 @@
 
 #let header = {
   [
-    Aalto University\
-    School of science\
-    Bachelor's~Programme~in~Science~and~Technology
+    #l("aalto")\
+    #l("sci")\
+    #l("program")
   ]
 }
 
@@ -40,7 +45,7 @@
   abbreviations: (),
   date: datetime.today(),
 ) = {
-  let date = date.display("[day]. [month repr:long] [year]")
+  let date = date.display("[day]. ") + l(lower(date.display("[month repr:long]"))) + date.display(" [year]")
 
   header
 
@@ -50,7 +55,7 @@
       \ \ \ \
     ]
     #text(size: 18pt)[
-      *Bachelor's thesis*
+      *#l("thesis")*
       \ \ \
       *#date*
       \ \ \ \ \ \
@@ -62,7 +67,7 @@
   grid(
     columns: (50%, 50%),
     align: (left, right),
-    header, [BACHELOR'S THESIS\ SUMMARY],
+    header, [#l("summary")],
   )
 
   show table.cell: it => {
@@ -90,17 +95,17 @@
 
   table(
     columns: (25%, 75%),
-    [Author], author,
-    [Thesis title], title,
-    [Date], date,
-    [No. of pages], context [ #counter(page).final().at(0) ],
-    [Major], major,
-    [Course code], code,
-    [Main teacher], teacher,
-    [Supervisor], supervisor,
+    [#l("author")], author,
+    [#l("title")], title,
+    [#l("date")], date,
+    [#l("nof_pages")], context [ #counter(page).final().at(0) ],
+    [#l("major")], major,
+    [#l("course_code")], code,
+    [#l("main_teacher")], teacher,
+    [#l("supervisor")], supervisor,
     table.cell(colspan: 2, summary),
-    [Keywords], keywords.join(", "),
-    [Language], language
+    [#l("keywords")], keywords.join(", "),
+    [#l("language")], language
   )
 
   pagebreak()
@@ -130,8 +135,8 @@
   pagebreak()
 
   counter(heading).update(0)
-  set heading(numbering: "A", supplement: [Appendix])
+  set heading(numbering: "A", supplement: [#l("appendix")])
 
-  [= Appendix]
+  [= #l(appendix)]
   appendix
 }
