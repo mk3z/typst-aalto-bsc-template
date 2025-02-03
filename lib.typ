@@ -135,8 +135,7 @@
   pagebreak()
 
   counter(heading).update(0)
-  set heading(numbering: "A", supplement: [#l("appendix")])
+  set heading(numbering: "A")
 
-  [= #l(appendix)]
   appendix
 }
