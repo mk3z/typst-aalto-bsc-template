@@ -123,7 +123,7 @@
 
   outline(indent: auto, fill: repeat(". "))
 
-  abbr.list()
+  abbr.list(title: l("list_of_abbreviations"))
   abbr.make(..abbreviations)
 
   pagebreak()
