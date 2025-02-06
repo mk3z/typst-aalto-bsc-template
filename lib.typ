@@ -130,11 +130,16 @@
 }
 
 #let end(bibfile, appendix) = {
-  pagebreak()
+  pagebreak(weak: true)
 
-  bibliography(bibfile)
+  show bibliography: bib => {
+    show "vsk.": "vol."
+    bib
+  }
 
-  pagebreak()
+  bibliography(bibfile, style: "ieee-aalto.csl")
+
+  pagebreak(weak: true)
 
   counter(heading).update(0)
   set heading(numbering: "A")
