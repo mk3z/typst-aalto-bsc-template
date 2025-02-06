@@ -29,6 +29,7 @@ september = "September"
 october = "October"
 november = "November"
 december = "December"
+list_of_abbreviations = "List of Abbreviations"
 
 [lang.fi]
 aalto = "Aalto-yliopisto"
@@ -58,3 +59,4 @@ september = "syyskuuta"
 october = "lokakuuta"
 november = "marraskuuta"
 december = "joulukuuta"
+list_of_abbreviations = "Lyhenteet"
