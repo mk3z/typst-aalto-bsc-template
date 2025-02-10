@@ -201,7 +201,13 @@
       </if>
     </choose>
   </macro>
-  <macro name="access"/>
+  <macro name="access">
+    <choose>
+      <if match="any" variable="DOI">
+        <text variable="DOI" prefix=" doi: " suffix="."/>
+      </if>
+    </choose>
+  </macro>
   <macro name="page">
     <choose>
       <if type="article-journal" variable="number" match="all">
