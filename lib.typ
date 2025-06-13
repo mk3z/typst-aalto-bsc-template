@@ -45,9 +45,11 @@
   abbreviations: (),
   date: datetime.today(),
 ) = {
-  let date = date.display("[day padding:none]. ") + l(
-    lower(date.display("[month repr:long]")),
-  ) + date.display(" [year]")
+  let date = (
+    date.display("[day padding:none]. ")
+      + l(lower(date.display("[month repr:long]")))
+      + date.display(" [year]")
+  )
 
   header
 
