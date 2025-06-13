@@ -114,16 +114,15 @@
 
   pagebreak()
 
-  show outline.entry: it => {
-    if it.level == 1 {
-      v(22pt, weak: true)
-      [#strong(it.body) #box(width: 1fr) #strong(it.page)]
-    } else {
-      [#it.body #box(width: 1fr, it.fill) #it.page]
-    }
+  // FIXME: remove fill
+  show outline.entry.where(level: 1): it => {
+    v(22pt, weak: true)
+    [#strong(it)]
   }
 
-  outline(indent: auto, fill: repeat(". "))
+  outline()
+
+  pagebreak()
 
   abbr.list(title: l("list_of_abbreviations"))
   abbr.make(..abbreviations)
