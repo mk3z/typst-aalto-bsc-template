@@ -1,5 +1,5 @@
-#import "@preview/abbr:0.1.1"
-#import "@preview/linguify:0.4.1": *
+#import "@preview/abbr:0.2.3"
+#import "@preview/linguify:0.4.2": *
 
 #let lang-data = toml("lang.toml")
 
