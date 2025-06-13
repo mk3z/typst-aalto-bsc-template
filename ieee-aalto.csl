@@ -367,6 +367,8 @@
             <text macro="title"/>
             <text variable="container-title" font-style="italic"/>
             <text macro="issued"/>
+            <text variable="URL"/>
+            <text variable="note"/>
           </group>
           <text macro="access"/>
         </else-if>
