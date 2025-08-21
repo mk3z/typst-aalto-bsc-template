@@ -69,7 +69,7 @@
   pagebreak()
 
   grid(
-    columns: (50%, 50%),
+    columns: (70%, 30%),
     align: (left, right),
     header, [#l("summary")],
   )
