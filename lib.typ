@@ -4,6 +4,7 @@
 #let lang-data = toml("lang.toml")
 
 #let l(key) = linguify(key, from: lang-data)
+#let l-fi(key) = linguify(key, from: lang-data, lang: "fi")
 
 #let styling(it) = {
   import "@preview/abbr:0.1.1"
@@ -24,7 +25,7 @@
   it
 }
 
-#let header = {
+#let header(l: l) = {
   [
     #l("aalto")\
     #l("sci")\
@@ -32,7 +33,7 @@
   ]
 }
 
-#let intro(
+#let summary_page(
   title: "Title",
   author: "Jaakko Turpela",
   major: "Major",
@@ -42,36 +43,13 @@
   summary: lorem(100),
   keywords: (),
   language: "English",
-  abbreviations: (),
-  date: datetime.today(),
+  date: datetime.today,
+  l: l,
 ) = {
-  let date = (
-    date.display("[day padding:none]. ")
-      + l(lower(date.display("[month repr:long]")))
-      + date.display(" [year]")
-  )
-
-  header
-
-  align(center + horizon)[
-    #text(size: 22pt)[
-      *#title*
-      \ \ \ \
-    ]
-    #text(size: 18pt)[
-      *#l("thesis")*
-      \ \ \
-      *#date*
-      \ \ \ \ \ \
-      *#author*
-    ]]
-
-  pagebreak()
-
   grid(
     columns: (70%, 30%),
     align: (left, right),
-    header, [#l("summary")],
+    header(l: l), [#l("summary")],
   )
 
   show table.cell: it => {
@@ -110,6 +88,80 @@
     table.cell(colspan: 2, summary),
     [#l("keywords")], keywords.join(", "),
     [#l("language")], language
+  )
+}
+
+#let intro(
+  title: "Title",
+  author: "Jaakko Turpela",
+  major: "Major",
+  major-fi: "Pääaine",
+  code: "SCI1234",
+  teacher: "Teacher",
+  supervisor: "Supervisor",
+  summary: lorem(100),
+  summary-fi: lorem(100),
+  keywords: (),
+  keywords-fi: (),
+  language: "English",
+  language-fi: "Englanti",
+  abbreviations: (),
+  date: datetime.today(),
+) = {
+  let date_translated = (
+    date.display("[day padding:none]. ")
+      + l(lower(date.display("[month repr:long]")))
+      + date.display(" [year]")
+  )
+
+  header()
+
+  align(center + horizon)[
+    #text(size: 22pt)[
+      *#title*
+      \ \ \ \
+    ]
+    #text(size: 18pt)[
+      *#l("thesis")*
+      \ \ \
+      *#date_translated*
+      \ \ \ \ \ \
+      *#author*
+    ]]
+
+  if (context text.lang) != "fi" [
+    #pagebreak()
+
+    #summary_page(
+      title: title,
+      author: author,
+      major: major-fi,
+      code: code,
+      teacher: teacher,
+      supervisor: supervisor,
+      summary: summary-fi,
+      keywords: keywords-fi,
+      language: language-fi,
+      date: date.display("[day padding:none]. ")
+        + l-fi(lower(date.display("[month repr:long]")))
+        + date.display(" [year]"),
+      l: l-fi,
+    )
+  ]
+
+  pagebreak()
+
+  summary_page(
+    title: title,
+    author: author,
+    major: major,
+    code: code,
+    teacher: teacher,
+    supervisor: supervisor,
+    summary: summary,
+    keywords: keywords,
+    language: language,
+    date: date_translated,
   )
 
   pagebreak()
