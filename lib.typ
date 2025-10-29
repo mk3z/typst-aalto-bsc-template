@@ -75,6 +75,20 @@
     bottom: 0.5pt,
   ))
 
+  let sorted_keywords = keywords.sorted(key: a => lower(a))
+  let sorted_capitalized_keywords = (
+    for i in range(sorted_keywords.len()) {
+      if i == 0 {
+        (
+          upper(sorted_keywords.at(i).slice(0, 1))
+            + sorted_keywords.at(i).slice(1)
+        )
+      } else {
+        ", " + sorted_keywords.at(i)
+      }
+    }
+  )
+
   table(
     columns: (25%, 75%),
     [#l("author")], author,
@@ -86,7 +100,7 @@
     [#l("main_teacher")], teacher,
     [#l("supervisor")], supervisor,
     table.cell(colspan: 2, summary),
-    [#l("keywords")], keywords.join(", "),
+    [#l("keywords")], sorted_capitalized_keywords,
     [#l("language")], language
   )
 }
