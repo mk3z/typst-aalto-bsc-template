@@ -122,8 +122,15 @@
   abbreviations: (),
   date: datetime.today(),
 ) = {
+  let day_translated
+  if (context text.lang) == "fi" {
+    day_translated = date.display("[day padding:none]. ")
+  } else {
+    day_translated = date.display("[day padding:none] ")
+  }
+
   let date_translated = (
-    date.display("[day padding:none]. ")
+    day_translated
       + l(lower(date.display("[month repr:long]")))
       + date.display(" [year]")
   )
