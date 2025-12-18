@@ -17,7 +17,7 @@
     }
   })
 
-  set par(leading: 0.8em, justify: true)
+  set par(first-line-indent: 1.2em, leading: 0.8em, justify: true)
 
   set heading(numbering: "1.")
   show heading: set block(below: 1.5em, above: 2em)
