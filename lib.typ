@@ -49,7 +49,8 @@
   grid(
     columns: (70%, 30%),
     align: (left, right),
-    header(l: l), [#l("summary")],
+    header(l: l,),
+    [#l("summary")],
   )
 
   show table.cell: it => {
@@ -101,7 +102,7 @@
     [#l("supervisor")], supervisor,
     table.cell(colspan: 2, summary),
     [#l("keywords")], sorted_capitalized_keywords,
-    [#l("language")], language
+    [#l("language")], language,
   )
 }
 
@@ -216,6 +217,7 @@
   pagebreak(weak: true)
 
   counter(heading).update(0)
+
   set heading(numbering: "A1")
 
   appendix
