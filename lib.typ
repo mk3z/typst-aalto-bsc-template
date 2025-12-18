@@ -161,7 +161,10 @@
       code: code,
       teacher: teacher,
       supervisor: supervisor,
-      summary: summary-fi,
+      summary: [
+        #set text(lang: "fi")
+        #summary-fi
+      ],
       keywords: keywords-fi,
       language: language-fi,
       date: date.display("[day padding:none]. ")
