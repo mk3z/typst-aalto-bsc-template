@@ -201,7 +201,7 @@
 
   pagebreak()
 
-  abbr.list(title: l("list_of_abbreviations"))
+  abbr.list(title: l("list_of_abbreviations"), columns: 1)
   abbr.make(..abbreviations)
 
   pagebreak()
