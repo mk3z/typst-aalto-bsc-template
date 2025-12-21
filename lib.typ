@@ -121,6 +121,7 @@
   language: "English",
   language-fi: "Englanti",
   abbreviations: (),
+  disable-nomenclature: false,
   date: datetime.today(),
 ) = {
   let day_translated
@@ -199,9 +200,11 @@
 
   outline()
 
-  pagebreak()
+  if not disable-nomenclature {
+    pagebreak()
+    abbr.list(title: l("list_of_abbreviations"), columns: 1)
+  }
 
-  abbr.list(title: l("list_of_abbreviations"), columns: 1)
   abbr.make(..abbreviations)
 
   pagebreak()
